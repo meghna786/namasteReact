@@ -1,0 +1,26 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "Namaste React",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meghna786/namasteReact.git"
+  },
+  "author": "meghna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meghna786/namasteReact/issues"
+  },
+  "homepage": "https://github.com/meghna786/namasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
+
