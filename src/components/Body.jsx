@@ -1,5 +1,6 @@
 import { Card } from "./Card"
 import { useState, useEffect } from "react"
+import { Shimmer } from "./Shimmer";
 
 export const Body= ()=>{
       const [resDataList, setResDataList]=useState([]);
@@ -16,6 +17,12 @@ export const Body= ()=>{
       const filterList=()=>{
             let filteredList=resDataList.filter((item)=>item.info.avgRating>4);
             setResDataList(filteredList);
+      }
+
+      if(resDataList.length===0){
+            return (
+                  <Shimmer />
+            )
       }
 
       return (

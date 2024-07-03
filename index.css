@@ -33,3 +33,17 @@
 .res-img{
       width: 200px;
 }
+
+.shimmer-container{
+ width: 100vw;
+ height: 100%;
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.shimmer-card{
+      width: 250px;
+      height: 400px;
+      background-color: #fafafa;
+      margin: 20px;
+}
