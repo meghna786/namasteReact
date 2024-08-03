@@ -2,33 +2,21 @@ import { Card } from "./Card"
 import { useState, useEffect } from "react"
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
+import useResData from "../../utils/useResData";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 export const Body= ()=>{
-      const [resDataList, setResDataList]=useState([]);
-      const [filteredList, setFiltererdList]=useState([]);
+      const [resDataList, filteredList, setFiltererdList]=useResData();
       const [inputText, setInputText]=useState('');
-
-      useEffect(()=>{
-            getData=async ()=>{
-            let res= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65200&lng=77.16630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-            let data= await res.json();
-            setResDataList(data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            setFiltererdList(data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            }
-            getData();
-      },[])
+      const isOnline= useOnlineStatus();
 
       const filterList=()=>{
             let filteredList=resDataList.filter((item)=>item.info.avgRating>4);
             setFiltererdList(filteredList);
       }
 
-      if(resDataList.length===0){
-            return (
-                  <Shimmer />
-            )
-      }
-
+      if(resDataList.length===0) return <Shimmer />;
+      if(isOnline===false) return <h1>Looks like you are not connected</h1>;
       return (
             <div className="Body"> 
                   <div className="search">

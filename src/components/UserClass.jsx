@@ -7,15 +7,15 @@ class UserClass extends React.Component{
                   count:0,
                   count2:2
             }
-            console.log('child constructor');
+            console.log(this.props.name+'child constructor');
       }
 
       componentDidMount(){
-            console.log('child componentDidMount');
+            console.log(this.props.name+'child componentDidMount');
       }
 
       render(){
-            console.log('child render');
+            console.log(this.props.name+'child render');
             return (
                   <div style={{border:'1px solid black'}}>
                   <h1>Name- {this.props.name}</h1>
